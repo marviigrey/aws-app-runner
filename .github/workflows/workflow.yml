@@ -1,35 +1,34 @@
 name: build docker image
 
 on: 
-    push:
-        branches: [ main ]
+  push:
+    branches: 
+      - main
 
 jobs:
+  build: 
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
 
-    build: 
-         name: build
-         runs-on: ubuntu-latest
-         steps:
-            - name: checkout code
-              uses: actions/checkout@v2
+      - name: Configure AWS cloud credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with: 
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
-            - name: Configure AWS cloud credentials
-              uses: aws-actions/configure-aws-credentials@v1
-              with: 
-                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                aws-region: ${{ secrets.AWS_REGION }}
-            
-            - name: login to Amazon ECR
-             id: login-ecr
-             uses: aws-actions/amazon-ecr-login@v1
+      - name: login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
 
-            - name: build and push image to ECR
-              env: 
-                ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
-                ECR_REPOSITORY: prod/web-app
-                IMAGE-TAG: prod/web-appv1
-              run: |
-                docker build -t $ECR_REGISTRY/ECR_REPOSITORY:IMAGE-TAG .
-                docker push $ECR_REGISTRY/ECR_REPOSITORY:IMAGE-TAG
-
+      - name: build and push image to ECR
+        env: 
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: prod/web-app
+          IMAGE_TAG: prod/web-app:v1  
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
