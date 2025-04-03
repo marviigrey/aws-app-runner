@@ -5,3 +5,7 @@ module "ecr-repo" {
     image_mutability = var.image_mutability
 }
 
+module "app_runner" {
+    source                = "./modules/app-runner"
+    
+}
