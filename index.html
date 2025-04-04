@@ -1,18 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Sample Web App</title>
-<style>
-html { color-scheme: light; }
-body { width: 35em; margin: 0 auto;
-font-family: Amazon Ember, Verdana, Arial, sans-serif; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beautiful Webpage</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        h1, h2 {
+            color: #2e3d49;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-top: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .cta-button {
+            background-color: #f39c12;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .cta-button:hover {
+            background-color: #e67e22;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 60px 20px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .content .info-box {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .info-box .box {
+            background-color: #ecf0f1;
+            width: 280px;
+            padding: 30px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box .box h3 {
+            font-size: 1.8rem;
+            color: #34495e;
+        }
+
+        .info-box .box p {
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome to AWS App Runner!</h1>
-<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
 
-<p><em>Thank you for using AWS App Runner!</em></p>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to My Beautiful Webpage</h1>
+        <p>Explore amazing content and experience design like never before. Enjoy our simple, yet elegant interface!</p>
+        <button class="cta-button">Get Started</button>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h2>Why Choose Us?</h2>
+        <div class="info-box">
+            <div class="box">
+                <h3>Beautiful Design</h3>
+                <p>Our design is sleek, modern, and user-friendly. We believe in simplicity and elegance.</p>
+            </div>
+            <div class="box">
+                <h3>Responsive Layout</h3>
+                <p>Our page is fully responsive and looks great on any device. From desktop to mobile!</p>
+            </div>
+            <div class="box">
+                <h3>Fast & Reliable</h3>
+                <p>We ensure fast loading times and a smooth experience for all our users.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 My Beautiful Webpage. All Rights Reserved.</p>
+        <p>Follow us on <a href="#">Social Media</a></p>
+    </footer>
+
 </body>
 </html>
